@@ -1,0 +1,2 @@
+# CCTechChallenge
+### Solved CCtech challenge 
