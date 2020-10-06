@@ -1,0 +1,73 @@
+<!-- <=========================== Start The Home Page ==========================> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<!-- <=========================== Start The Header Tag ==========================> -->  
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- load static files  -->
+  {% load static %}
+  <link rel="stylesheet" href='{% static "app1/css/style.css" %}'>
+  <title>YouFrame</title>
+</head>
+<!-- <=========================== Ends The Header Tag ==========================> -->
+
+<!-- <=========================== Start The Body Tag ==========================> --> 
+ <body>
+    <h3 class="header center" >Gallery</h3>
+    <div class="center pd-5">
+      <div class="box">
+      <!-- form for submit a images   -->
+      <form id="uploadform" method="post" enctype="multipart/form-data">  
+        {% csrf_token %}
+          {{ form.photo }}
+          <label for="file"> <img src='{% static "app1/images/upload.png" %}' height="15px" width="15px"><small>Upload</small></label>
+          <input type="submit" hidden>
+      </form>
+     {% if img_obj %}
+       <div id ="imageID">
+         <div class="box1">
+         <small>Succesfully uploaded : {{img_obj.title}}</small>
+         <img  src="{{ img_obj.photo.url}}" alt="Image Uploaded Successfully" height="100px" width="100px">
+        </div>
+       </div>
+     {% endif %}
+    </div>
+    </div>
+    <!-- Loading images  -->
+     <div id="grid" style="margin-top: 5%;">
+      {% for image in images %}
+       <img  src="{{image.photo.url}}" height="210px" width="210px"> 
+       {% endfor %}
+     </div>
+  <footer class="footer">
+      <h3 class="header center">Fullstack Challenge -2020</h3>
+  </footer>
+  
+ <!-- <=========================== Start The Javascript section ==========================> --> 
+  <script>
+
+    //function to avoid submit data again and again after upload and refresh page
+      if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+      }
+    
+      // function to submit form data on upload
+      function yourFunction(){
+        document.getElementById("uploadform").submit();// Form submission
+      }
+
+       // function to Preview image for 5 second after upload
+      setTimeout(function() {
+        document.getElementById('imageID').style.display='none'
+      }, 5000);    
+  </script>
+ <!-- <=========================== Ends The Javascript section ==========================> -->  
+
+</body>
+
+<!-- <=========================== Ends The Body Tag ==========================> -->
+
+</html>
+
