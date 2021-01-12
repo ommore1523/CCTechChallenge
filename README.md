@@ -56,7 +56,7 @@ Now from extracted model folder copy  pipeline.conf file and paste in research/t
 **Convert .xml files to tfrecord**
    1. Download file generate_tfrecord.py present inside scrpits folder ( [Here](scripts/generate_tfrecord.py) ) and keep it inside research folder
    1. run :  `python generate_tfrecord.py --csv_input=images/test_labels.csv --image_dir=images/test --output_path=test.record`
-   1. run :   `python generate_tfrecord.py --csv_input=images/train_labels.csv --image_dir=images/train --output_path=train.record
+   1. run :   `python generate_tfrecord.py --csv_input=images/train_labels.csv --image_dir=images/train --output_path=train.record`
        
 * Open the File models/research/object_detection/core/box_predictor.py and change the content at line `137` to  
      ```class KerasBoxPredictor(tf.compat.v1.keras.layers.Layer):```
@@ -71,7 +71,7 @@ Now from extracted model folder copy  pipeline.conf file and paste in research/t
 * Copy file from  models/research/object_detection/model_main_tf2.py and paste in research folder 
         
 ## Step-3 : Start Training 
-*  Run command :  python model_main_tf2.py –model_dir=model_directory  --pipeline_config_path=training/pipeline.config
+*  Run command :  `python model_main_tf2.py –model_dir=model_directory  --pipeline_config_path=training/pipeline.config`
         
 ## Reference :
  
