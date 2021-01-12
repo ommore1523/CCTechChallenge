@@ -1,4 +1,4 @@
-#                                                                  T E N S O R F L O W  -  2.0  -  O B J E C T -  D E T E C T I O N 
+#                                                                  T E N S O R F L O W-2.0 -  O B J E C T  D E T E C T I O N 
 
 ### Current System Configuration Present :
 - Ubuntu 20.04 
